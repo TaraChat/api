@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 RABBIT_PROTOCOL = os.environ.get("RABBIT_PROTOCOL", "amqp")

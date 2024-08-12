@@ -13,3 +13,4 @@ pygelf
 fastapi-elasticsearch
 elasticsearch
 opensearch-py
+dotenv
