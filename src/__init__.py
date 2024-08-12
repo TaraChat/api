@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .config import (
+from src.config import (
     RABBIT_PROTOCOL,
     RABBIT_USER,
     RABBIT_PASSWORD,

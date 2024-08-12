@@ -2,7 +2,7 @@ import re, ast
 from fastapi import Request, status
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
-from .const import BLOCKLIST
+from src.const import BLOCKLIST
 
 
 TOKEN_TYPE = "Bearer"

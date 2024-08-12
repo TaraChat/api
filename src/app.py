@@ -1,11 +1,11 @@
 import logging
 from fastapi.middleware.cors import CORSMiddleware
-from .extensions.database.connection.redis import get_async_in_memory_connection
-from .utils import treat_return_exception, authorize, is_blocked
+from extensions.database.connection.redis import get_async_in_memory_connection
+from src.utils import treat_return_exception, authorize, is_blocked
 from fastapi import Request
 from fastapi_limiter import FastAPILimiter
 from fastapi_limiter.depends import RateLimiter
-from . import create_app
+from src import create_app
 
 app = create_app()
 
