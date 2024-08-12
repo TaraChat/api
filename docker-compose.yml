@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  tarachat-api:
+    build:
+      context: .
+    container_name: tarachat-api
+    command: gunicorn src.app:app -b 0.0.0.0:8000 -w 2 -k uvicorn.workers.UvicornWorker --worker-connections 1000 --max-requests 5000 --worker-tmp-dir /dev/shm --access-logfile /tmp/access.log
+    environment:
+      - RABBIT_PROTOCOL=${RABBIT_PROTOCOL}
+      - RABBIT_USER=${RABBIT_USER}
+      - RABBIT_PASSWORD=${RABBIT_PASSWORD}
+      - RABBIT_HOST=${RABBITMQ_IP_ADDRESS} # Must be the IP because the python DNS do not work on config.yaml of nameko
+      - RABBIT_PORT=${RABBIT_PORT}
+      - IN_MEMORY_STATE_HOST=${IN_MEMORY_STATE_HOST}
+      - IN_MEMORY_STATE_PORT=${IN_MEMORY_STATE_PORT}
+    restart: always
+    ports:
+      - 30025:8000
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true

@@ -1,0 +1,15 @@
+fastapi==0.105.0
+fastapi-limiter
+uvicorn[standard]
+nameko==3.0.0-rc11
+gunicorn==20.1.0
+python-multipart
+redis
+cryptography
+pydantic==2.6.0
+pydantic[email]
+email-validator
+pygelf
+fastapi-elasticsearch
+elasticsearch
+opensearch-py
